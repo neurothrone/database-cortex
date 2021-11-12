@@ -1,0 +1,18 @@
+# base template for mysql docker image
+version: "3"
+
+services: 
+  db:
+    image: mysql:latest
+    container_name: "mysql-python-sqlalchemy"
+    # 3306 is default for mysql
+    ports:
+      - "3306:3306"
+    # mysql warning messages setting
+    cap_add:
+      - "SYS_NICE"
+    environment:
+      MYSQL_DATABASE: "py-db"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "super-secret-password"
+      MYSQL_ROOT_PASSWORD: "super-secret-password"
